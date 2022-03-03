@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check Branch
-          id: check-branch
-          run: |
-            if [[ ${{ github.head_ref }} =~ ^DEV-[0-9]+.*$ ]]; then
-                echo ::set-output name=match::true
-            fi
+        id: check-branch
+        run: |
+          if [[ ${{ github.head_ref }} =~ ^DEV-[0-9]+.*$ ]]; then
+              echo ::set-output name=match::true
+          fi
       - uses: baocin/pr-update-action@v2
         if: steps.check-branch.outputs.match == 'true'
         with:
