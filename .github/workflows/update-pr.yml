@@ -22,9 +22,9 @@ jobs:
           head-branch-regex: 'DEV-[0-9]+'
           title-template: '[%headbranch%] '
           body-template: |
-            Quick links for '%headbranch%'
+            Quick links for %headbranch%
             - [Jira Ticket](https://dwellsy.atlassian.net/browse/%headbranch%)
-            - [Netlify](%headbranch%--dwellsy.netlify.app)
+            - [Netlify](https://%headbranch%--dwellsy.netlify.app)
           body-update-action: 'suffix'
           body-uppercase-head-match: false
           
