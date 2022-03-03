@@ -18,6 +18,7 @@ jobs:
         if: steps.check-branch.outputs.match == 'true'
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          lowercase-branch: false
           head-branch-regex: 'DEV-[0-9]+'
           title-template: '[%headbranch%] '
           body-template: |
