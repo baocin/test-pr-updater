@@ -1,0 +1,28 @@
+name: "Update Pull Request"
+on: pull_request
+  types: [opened]
+
+jobs:
+  update_pr:
+    name: PR update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Branch
+          id: check-branch
+          run: |
+            if [[ ${{ github.head_ref }} =~ ^DEV-[0-9]+.*$ ]]; then
+                echo ::set-output name=match::true
+            fi
+      - uses: baocin/pr-update-action@v2
+        if: steps.check-branch.outputs.match == 'true'
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          base-branch-regex: '[a-z\d-_.\\/]+'
+          head-branch-regex: 'DEV-\d+'
+          title-template: '[%headbranch%] '
+          body-template: |
+            Quick links for '%headbranch%'
+            - [Jira Ticket](https://dwellsy.atlassian.net/browse/%headbranch%)
+            - [Netlify](%headbranch%--dwellsy.netlify.app)
+          body-update-action: 'suffix'
+          body-uppercase-base-match: false
