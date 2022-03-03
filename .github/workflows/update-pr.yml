@@ -14,7 +14,7 @@ jobs:
           if [[ ${{ github.head_ref }} =~ ^.*DEV-[0-9]+.*$ ]]; then
               echo ::set-output name=match::true
           fi
-      - uses: baocin/pr-update-action@v2
+      - uses: baocin/pr-update-action@v3
         if: steps.check-branch.outputs.match == 'true'
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
