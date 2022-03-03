@@ -1,11 +1,11 @@
-name: "Update Pull Request"
+name: "Update Pull Request With Quick Links"
 on: 
   pull_request:
     types: [opened]
 
 jobs:
   update_pr:
-    name: PR update
+    name: Process PR
     runs-on: ubuntu-latest
     steps:
       - name: Check Branch
