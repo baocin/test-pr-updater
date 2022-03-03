@@ -24,7 +24,7 @@ jobs:
           body-template: |
             Quick links for %headbranch%
             - [Jira Ticket](https://dwellsy.atlassian.net/browse/%headbranch%)
-            - [Netlify](https://%headbranch%--dwellsy.netlify.app)
+            - [Netlify](https://%originalheadbranchname%--dwellsy.netlify.app)
           body-update-action: 'suffix'
           body-uppercase-head-match: false
           
