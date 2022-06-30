@@ -11,7 +11,7 @@ jobs:
       - name: Check Branch
         id: check-branch
         run: |
-          if [[ ${{ github.head_ref }} =~ ^.*DEV-[0-9]+.*$ ]]; then
+          if [[ ${{ github.head_ref }} =~ ^.*EN-[0-9]+.*$ ]]; then
               echo ::set-output name=match::true
           fi
       - uses: baocin/pr-update-action@v3
@@ -19,7 +19,7 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           lowercase-branch: false
-          head-branch-regex: 'DEV-[0-9]+'
+          head-branch-regex: 'EN-[0-9]+'
           title-template: '[%headbranch%] '
           body-template: |
             Quick links for %headbranch%
